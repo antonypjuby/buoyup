@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Prediction Results</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    p {
+      text-align: center;
+      font-weight: 200;
+      font-size: 50px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    textarea {
+      width: 400px;
+      height: 200px;
+      margin-bottom: 20px;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    label {
+      font-size: 20px;
+    }
+
+    button[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    li {
+      padding: 10px;
+      margin: 10px;
+      background-color: #f2f2f2;
+      border-radius: 5px;
+      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+
+<body>
+  <p>Prediction Results</p>
+  {% for prediction in predictions %}
+  <p>{{ prediction[0] }}</p>
+  {% endfor %}
+
+  <form method="POST" action="/comment">
+    <label for="comment">Add a comment:</label>
+    <textarea name="comment" id="comment"></textarea>
+    <button type="submit">Submit</button>
+  </form>
+  <h2>Comments:</h2>
+  <ul>
+
+    <li>"Great news! Your lung x-ray results came back clear and healthy. Keep up the good work in taking care of your
+      health."</li>
+    <li> "Your lung x-ray results are excellent. It's always a relief to see normal results and know that you are in
+      good health."</li>
+    <li> "I'm happy to report that your lung x-ray results came back normal. Keep taking care of your lungs and staying
+      healthy."</li>
+    <li> "Your lung x-ray looks great! It's always a good feeling to know that everything is functioning properly."</li>
+    <li> "Normal lung x-ray results are always a reason to celebrate. Keep up the good work in taking care of your
+      body."</li>
+
+  </ul>
+
+</body>
+
+</html>
